@@ -36,6 +36,7 @@ public class InvoiceControllerTest {
         CreateInvoiceCommand cmd = new CreateInvoiceCommand(100L, new Email("ichbinheselig@oarm.spendegeldaunchristian"));
         var now = LocalDateTime.now();
 
+        //geht auch any(), any(), any() statt cmd.price(), cmd.email()
         when(invoiceService.createInvoice(cmd.price(), cmd.email())).thenReturn(
                 new Invoice(new APIKey("1234"), now, cmd.price(), cmd.email())
         );

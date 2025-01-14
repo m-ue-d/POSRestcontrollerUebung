@@ -4,6 +4,7 @@ import dev.fabianmild.wilfleinsdorfertest.domain.APIKey;
 import dev.fabianmild.wilfleinsdorfertest.domain.Invoice;
 import dev.fabianmild.wilfleinsdorfertest.service.InvoiceService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -58,7 +59,10 @@ public class InvoiceController {
 
     @ExceptionHandler(InvoiceException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public void handleException(InvoiceException e) {
+    public ResponseEntity<ProblemDetail> handleException(InvoiceException e) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         System.out.printf("An %s error occurred: %s", e.getClass().getSimpleName(), e.getMessage());
+
+        return ResponseEntity.internalServerError().body(problemDetail);
     }
 }
