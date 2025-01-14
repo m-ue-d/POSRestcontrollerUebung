@@ -1,4 +1,7 @@
 package dev.fabianmild.wilfleinsdorfertest.presentation;
 
-public record CreateInvoiceCommand() {
-}
+import dev.fabianmild.wilfleinsdorfertest.domain.Email;
+
+import java.time.LocalDateTime;
+
+public record CreateInvoiceCommand(Long price, Email email) { }

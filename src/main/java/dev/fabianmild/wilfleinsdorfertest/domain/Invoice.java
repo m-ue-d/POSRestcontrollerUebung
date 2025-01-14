@@ -1,4 +1,6 @@
 package dev.fabianmild.wilfleinsdorfertest.domain;
 
-public record Invoice() {
+import java.time.LocalDateTime;
+
+public record Invoice(APIKey key, LocalDateTime date, Long price, Email email) {
 }

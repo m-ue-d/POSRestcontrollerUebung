@@ -1,4 +1,4 @@
 package dev.fabianmild.wilfleinsdorfertest.domain;
 
-public record Email() {
+public record Email(String address) {
 }
