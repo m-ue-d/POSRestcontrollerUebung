@@ -47,7 +47,7 @@ public class InvoiceControllerTest {
 
         mockMvc.perform(request)
                 .andExpect(status().isCreated())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().contentType("application/hal+json"))
                 .andExpect(jsonPath("$.date").value(now.toString()))
                 .andExpect(jsonPath("$.price").value(cmd.price()))
                 .andExpect(jsonPath("$.email.address").value(cmd.email().address()))
@@ -70,7 +70,7 @@ public class InvoiceControllerTest {
 
     @Test
     void getInvoiceTest() throws Exception{
-        var now = LocalDateTime.now();
+        var now = LocalDateTime.now().withNano(0);
         Invoice invoice = new Invoice(new APIKey("1234"), now, 100L, new Email("ichbinheselig@oarm.spendegeldaunchristian"));
 
         when(invoiceService.getInvoice(invoice.key())).thenReturn(
