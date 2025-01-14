@@ -1,7 +1,7 @@
-package dev.fabianmild.wilfleinsdorfertest.presentation;
+package dev.fabianmild.posrestcontrolleruebung.presentation;
 
-import dev.fabianmild.wilfleinsdorfertest.domain.Email;
-import dev.fabianmild.wilfleinsdorfertest.domain.Invoice;
+import dev.fabianmild.posrestcontrolleruebung.domain.Email;
+import dev.fabianmild.posrestcontrolleruebung.domain.Invoice;
 
 import java.time.LocalDateTime;
 

@@ -1,10 +1,10 @@
-package dev.fabianmild.wilfleinsdorfertest.presentation;
+package dev.fabianmild.posrestcontrolleruebung.presentation;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.fabianmild.wilfleinsdorfertest.domain.APIKey;
-import dev.fabianmild.wilfleinsdorfertest.domain.Email;
-import dev.fabianmild.wilfleinsdorfertest.domain.Invoice;
-import dev.fabianmild.wilfleinsdorfertest.service.InvoiceService;
+import dev.fabianmild.posrestcontrolleruebung.domain.APIKey;
+import dev.fabianmild.posrestcontrolleruebung.domain.Email;
+import dev.fabianmild.posrestcontrolleruebung.domain.Invoice;
+import dev.fabianmild.posrestcontrolleruebung.service.InvoiceService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-import static dev.fabianmild.wilfleinsdorfertest.presentation.InvoiceController.BASE_URL;
+import static dev.fabianmild.posrestcontrolleruebung.presentation.InvoiceController.BASE_URL;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;

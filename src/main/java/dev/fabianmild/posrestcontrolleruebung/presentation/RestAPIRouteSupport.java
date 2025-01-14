@@ -1,4 +1,4 @@
-package dev.fabianmild.wilfleinsdorfertest.presentation;
+package dev.fabianmild.posrestcontrolleruebung.presentation;
 
 public interface RestAPIRouteSupport {
     String _SLASH = "/";

@@ -1,4 +1,4 @@
-package dev.fabianmild.wilfleinsdorfertest.domain;
+package dev.fabianmild.posrestcontrolleruebung.domain;
 
 import java.time.LocalDateTime;
 

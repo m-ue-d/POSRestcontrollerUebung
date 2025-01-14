@@ -1,4 +1,4 @@
-package dev.fabianmild.wilfleinsdorfertest.presentation;
+package dev.fabianmild.posrestcontrolleruebung.presentation;
 
 import jakarta.persistence.PersistenceException;
 import org.springframework.http.HttpStatus;

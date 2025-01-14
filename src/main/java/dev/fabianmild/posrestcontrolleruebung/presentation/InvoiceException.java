@@ -1,4 +1,4 @@
-package dev.fabianmild.wilfleinsdorfertest.presentation;
+package dev.fabianmild.posrestcontrolleruebung.presentation;
 
 public class InvoiceException extends RuntimeException {
     public InvoiceException(String message) {

@@ -1,10 +1,10 @@
-package dev.fabianmild.wilfleinsdorfertest;
+package dev.fabianmild.posrestcontrolleruebung;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WilfleinsdorferTestApplicationTests {
+class POSRestcontrollerUebungTestApplicationTests {
 
     @Test
     void contextLoads() {

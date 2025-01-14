@@ -1,9 +1,9 @@
-package dev.fabianmild.wilfleinsdorfertest.service;
+package dev.fabianmild.posrestcontrolleruebung.service;
 
-import dev.fabianmild.wilfleinsdorfertest.domain.APIKey;
-import dev.fabianmild.wilfleinsdorfertest.domain.Email;
-import dev.fabianmild.wilfleinsdorfertest.domain.Invoice;
-import dev.fabianmild.wilfleinsdorfertest.presentation.InvoiceException;
+import dev.fabianmild.posrestcontrolleruebung.domain.APIKey;
+import dev.fabianmild.posrestcontrolleruebung.domain.Email;
+import dev.fabianmild.posrestcontrolleruebung.domain.Invoice;
+import dev.fabianmild.posrestcontrolleruebung.presentation.InvoiceException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
