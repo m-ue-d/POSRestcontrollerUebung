@@ -131,4 +131,36 @@ public class InvoiceControllerTest {
         mockMvc.perform(request)
                 .andExpect(status().isNotFound());
     }
+
+    @Test
+    void testUpdateInvoice() throws Exception {
+        UpdateInvoiceCommand cmd = new UpdateInvoiceCommand(new APIKey("1234"), 100L, new Email("ichbinheselig@oarm.spendegeldaunchristian"));
+
+        when(invoiceService.updateInvoice(cmd.key(), cmd.price(), cmd.email())).thenReturn(
+                Optional.of(new Invoice(cmd.key(), LocalDateTime.now(), cmd.price(), cmd.email()))
+        );
+
+        var request = put(BASE_URL)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(cmd));
+
+        mockMvc.perform(request)
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void testUpdateInvoiceNotFound() throws Exception {
+        UpdateInvoiceCommand cmd = new UpdateInvoiceCommand(new APIKey("1234"), 100L, new Email("ichbinheselig@oarm.spendegeldaunchristian"));
+
+        when(invoiceService.updateInvoice(cmd.key(), cmd.price(), cmd.email())).thenReturn(
+                Optional.empty()
+        );
+
+        var request = put(BASE_URL)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(cmd));
+
+        mockMvc.perform(request)
+                .andExpect(status().isNotFound());
+    }
 }

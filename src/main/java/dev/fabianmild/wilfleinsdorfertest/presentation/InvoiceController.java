@@ -3,16 +3,11 @@ package dev.fabianmild.wilfleinsdorfertest.presentation;
 import dev.fabianmild.wilfleinsdorfertest.domain.APIKey;
 import dev.fabianmild.wilfleinsdorfertest.domain.Invoice;
 import dev.fabianmild.wilfleinsdorfertest.service.InvoiceService;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import dev.fabianmild.wilfleinsdorfertest.presentation.RestAPIRouteSupport;
 
 import java.net.URI;
-import java.time.LocalDateTime;
 
 import static dev.fabianmild.wilfleinsdorfertest.presentation.InvoiceController.BASE_URL;
 import static dev.fabianmild.wilfleinsdorfertest.presentation.RestAPIRouteSupport.API;
@@ -44,6 +39,14 @@ public class InvoiceController {
         URI location = URI.create("%s%s%s".formatted(BASE_URL, _SLASH, invoice.key().value()));
 
         return ResponseEntity.created(location).body(new InvoiceDto(invoice));
+    }
+
+    @PutMapping
+    public ResponseEntity<InvoiceDto> updateInvoice(@RequestBody UpdateInvoiceCommand command) {
+        return invoiceService.updateInvoice(command.key(), command.price(), command.email())
+                .map(InvoiceDto::new)
+                .map(invoice -> ResponseEntity.ok().body(invoice))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping
